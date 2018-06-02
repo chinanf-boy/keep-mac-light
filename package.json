@@ -3,8 +3,6 @@
 	"version": "0.0.0",
 	"description": "keep mac light no down",
 	"license": "MIT",
-	"main": "dist/keep-mac-light.js",
-	"module": "dist/keep-mac-light.m.js",
 	"repository": "chinanf-boy/keep-mac-light",
 	"author": {
 		"name": "chinanf-boy",
@@ -16,18 +14,14 @@
 		"node": ">=4"
 	},
 	"scripts": {
-		"test": "nyc ava -v",
-		"dev": "microbundle watch",
 		"precommit": "lint-staged",
-		"prepublish": "npm run build",
-		"build": "microbundle",
-		"pub": "npm run test && npm run npmUp && npm run git",
+		"pub": "npm run npmUp && npm run git",
 		"npmUp": "npm version patch && npm publish",
 		"git": "git push && git push --tags"
 	},
 	"size-limit": [
 		{
-			"path": "dist/keep-mac-light.js",
+			"path": "cli.js",
 			"gzip": false
 		}
 	],
@@ -43,21 +37,16 @@
 	"keywords": [
 		"cli-app",
 		"cli",
-		""
+		"mac",
+		"keep-light"
 	],
 	"dependencies": {
 		"meow": "^5.0.0",
-		"robotjs": "^0.5.1",
-		"two-log": "^0.0.9",
-		"weoptions": "^0.0.11"
+		"two-log": "0.0.9"
 	},
 	"devDependencies": {
-		"codecov": "^3.0.2",
-		"nyc": "^11.8.0",
 		"lint-staged": "^7.0.0",
-		"microbundle": "^0.4.4",
-		"prettier": "^1.12.1",
-		"ava": "^0.25.0"
+		"prettier": "^1.12.1"
 	},
 	"nyc": {
 		"reporter": [

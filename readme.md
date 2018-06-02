@@ -1,72 +1,32 @@
-# keep-mac-light [![Build Status](https://travis-ci.org/chinanf-boy/keep-mac-light.svg?branch=master)](https://travis-ci.org/chinanf-boy/keep-mac-light) [![codecov](https://codecov.io/gh/chinanf-boy/keep-mac-light/badge.svg?branch=master)](https://codecov.io/gh/chinanf-boy/keep-mac-light?branch=master) [![explain](http://llever.com/explain.svg)](https://github.com/chinanf-boy/keep-mac-light-explain)
+# keep-mac-light
 
 > keep mac light no down
 
-[中文](./readme.md) | ~~[english](./readme.en.md)~~
-
 ## Install
 
-
+Install https://github.com/BlueM/cliclick Before
 
 ```
 npm i -g keep-mac-light
 ```
 
-
-
-
-## Usage
-
-```js
-const keepMacLight = require('keep-mac-light');
-
-keepMacLight('unicorns');
-//=> 'unicorns & rainbows'
 ```
-
-
-## API
-
-### keepMacLight(input, [options])
-
-#### input
-
-name: | input
----------|----------
-Type: | `string`
-Desc: | Lorem ipsum.
-
-#### options
-
-##### foo
-
- name: | foo
----------|----------
-Type: | `boolean`
-Default: | `false`
-Desc: | Lorem ipsum.
-
-
-## CLI
-
-```
-npm install --global keep-mac-light
+keep-mac-light
 ```
 
 ```
 $ keep-mac-light --help
 
-  Usage
-    keep-mac-light [input]
+	Usage
+	  $ keep-mac-light [time]
 
-  Options
-    --foo  Lorem ipsum [Default: false]
+	Examples
+	  $ keep-mac-light
 
-  Examples
-    $ keep-mac-light
-    unicorns & rainbows
-    $ keep-mac-light ponies
-    ponies & rainbows
+		set Time to no light, But os setting is First options < oo >
+
+		"1h3m5s"
+		1 hour 3 minutes 5 seconds
 ```
 
 
