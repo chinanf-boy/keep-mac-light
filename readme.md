@@ -6,7 +6,11 @@
 
 1. Install https://github.com/BlueM/cliclick Before
 
-2.
+```
+brew install cliclick
+```
+
+2. Use keep-mac-light
 
 ```
 npm i -g keep-mac-light
