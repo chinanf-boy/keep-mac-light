@@ -64,7 +64,7 @@ const cli = meow(`
 		setTimeout(() => {
 			T += 59
 			log.text(`... ${T}/${setTime}`)
-			run()
+			KeepRun()
 		}, 59*1000);
 
 	}
