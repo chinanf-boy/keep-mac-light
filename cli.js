@@ -19,19 +19,19 @@ const cli = meow(`
 	const {twoLog} = require('two-log')
 
 	let log = twoLog(cli.flags['D'])
-	log.start("runing keep mac light")
 	let t = cli.input[0]
 	// if t == false , forever
 	let forEver = !!t
-	let setTime = 'o_o forever 😁 '
+	let setTime = ''
 	if(t){ // set time
 		function getNum(str){
-			let i = t.indexOf('h')
+			let i = t.indexOf(str)
 			if(i > -1){
 				let n = t.substring(0, i)
 				t = t.slice(i+1)
 				return n
 			}
+			return 0
 		}
 
 		let h = getNum('h')
@@ -49,13 +49,21 @@ const cli = meow(`
 
 	const { exec } = require('child_process')
 
+	if(setTime && setTime > 0){
+		timeShow()
+	}else{
+		setTime = '0-^ ForEver'
+	}
+
+	log.start("runing keep mac light >> ⏰ << " + setTime)
+
 	KeepRun()
 
 	function KeepRun(){
 
-		if( forEver && T > setTime){
+		if( forEver && setTime <= 0){
 			// forever == false, never Quit node
-			log.stop()
+			log.stop('Time, KeepRun end ',{ora:"succeed"})
 			process.exit(0)
 		}
 
@@ -63,9 +71,21 @@ const cli = meow(`
 		exec('cliclick m:-1,+0')
 		setTimeout(() => {
 			T += 59
-			log.text(`... ${T}/${setTime}`)
 			KeepRun()
 		}, 59*1000);
+
+	}
+
+	function timeShow(){
+		if(setTime <= 0){
+			log.stop('Time end ',{ora:"succeed"})
+			process.exit(0)
+		}
+		log.text(`..(o^^o).. ⏰ ${setTime}s`)
+		setTimeout(() => {
+			setTime --
+			timeShow()
+		}, 1000);
 
 	}
 
