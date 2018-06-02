@@ -4,7 +4,9 @@
 
 ## Install
 
-Install https://github.com/BlueM/cliclick Before
+1. Install https://github.com/BlueM/cliclick Before
+
+2.
 
 ```
 npm i -g keep-mac-light
@@ -29,6 +31,14 @@ $ keep-mac-light --help
 		1 hour 3 minutes 5 seconds
 ```
 
+## Doc
+
+every `59s`, the `mouse` will move a lit bit, so Light is Up forEver
+
+## Use
+
+- https://github.com/BlueM/cliclick `Mac key/mouse event`
+- [two-log](https://github.com/chinanf-boy/two-log) I just need two message show
 
 ## License
 
