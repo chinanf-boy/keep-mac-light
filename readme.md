@@ -37,7 +37,7 @@ $ keep-mac-light --help
 
 ## Doc
 
-every `59s`, the `mouse` will move a lit bit, so Light is Up forEver
+every `50s`, the `mouse` will move a lit bit, so Light is Up forEver
 
 ## Use
 

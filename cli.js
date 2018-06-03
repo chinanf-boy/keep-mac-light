@@ -63,22 +63,22 @@ const cli = meow(`
 
 		if( forEver && setTime <= 0){
 			// forever == false, never Quit node
-			log.stop('Time, KeepRun end ',{ora:"succeed"})
+			log.stop(`Time, KeepRun end ${new Date().toLocaleString()}`,{ora:"succeed"})
 			process.exit(0)
 		}
 
 		exec('cliclick m:+1,+0')
 		exec('cliclick m:-1,+0')
 		setTimeout(() => {
-			T += 59
+			T += 50
 			KeepRun()
-		}, 59*1000);
+		}, 50*1000);
 
 	}
 
 	function timeShow(){
 		if(setTime <= 0){
-			log.stop('Time end ',{ora:"succeed"})
+			log.stop(`Time end ${new Date().toLocaleString()}`,{ora:"succeed"})
 			process.exit(0)
 		}
 		log.text(`..(o^^o).. ⏰ ${setTime}s`)
