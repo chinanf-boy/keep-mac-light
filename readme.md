@@ -35,9 +35,9 @@ $ keep-mac-light --help
 		1 hour 3 minutes 5 seconds
 ```
 
-## Doc
+## How it Work ?
 
-every `50s`, the `mouse` will move a lit bit, so Light is Up forEver
+every `50s`, use `cliclick` handle the `mouse` will move a lit bit, so Light is Up forEver
 
 ## Use
 
