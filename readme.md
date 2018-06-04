@@ -39,10 +39,16 @@ $ keep-mac-light --help
 
 every `50s`, use `cliclick` handle the `mouse` will move a lit bit, so Light is Up forEver
 
+
+
 ## Use
 
 - https://github.com/BlueM/cliclick `Mac key/mouse event`
 - [two-log](https://github.com/chinanf-boy/two-log) I just need two message show
+
+<a href="https://patreon.com/yobrave">
+<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" height="50">
+</a>
 
 ## License
 
