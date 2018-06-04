@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 const meow = require('meow');
+var whatTime = require('what-time');
 
 const cli = meow(`
 	Usage
@@ -76,7 +77,7 @@ const cli = meow(`
 			clearTimeout(KeepTime)
 			process.exitCode = 0;
 		}else{
-			log.text(`..(o^^o).. ⏰ ${setTime}s`)
+			log.text(`..(o^^o).. ⏰ ${whatTime(setTime)}`)
 			setTimeout(() => {
 				setTime --
 				timeShow()

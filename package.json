@@ -43,7 +43,8 @@
 	],
 	"dependencies": {
 		"meow": "^5.0.0",
-		"two-log": "0.0.9"
+		"two-log": "0.0.9",
+		"what-time": "^0.0.2"
 	},
 	"devDependencies": {
 		"ava": "^0.25.0",
