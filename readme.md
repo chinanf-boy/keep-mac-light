@@ -1,4 +1,4 @@
-# keep-mac-light
+# keep-mac-light [![Build Status](https://travis-ci.org/chinanf-boy/keep-mac-light.svg?branch=master)](https://travis-ci.org/chinanf-boy/keep-mac-light)
 
 > keep mac light no down
 

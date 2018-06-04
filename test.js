@@ -1,11 +1,8 @@
 import test from 'ava';
-import m from '.';
+import execa from 'execa'
 
-test('title', t => {
-	const err = t.throws(() => {
-		m(123);
-	}, TypeError);
-	t.is(err.message, 'Expected a string, got number');
+test('cli forEver',async t => {
+	const stream = await execa('./cli.js', ['1s']);
 
-	t.is(m('unicorns'), 'unicorns & rainbows');
+	t.is(stream.code,0)
 });

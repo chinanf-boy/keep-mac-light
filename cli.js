@@ -18,11 +18,13 @@ const cli = meow(`
 (async function(){
 	const {twoLog} = require('two-log')
 
+	const StartTime = new Date().toLocaleString()
+
 	let log = twoLog(cli.flags['D'])
 	let t = cli.input[0]
 	// if t == false , forever
-	let forEver = !!t
 	let setTime = ''
+
 	if(t){ // set time
 		function getNum(str){
 			let i = t.indexOf(str)
@@ -45,10 +47,6 @@ const cli = meow(`
 		setTime = h + m + s
 	}
 
-	let T = 0
-
-	const { exec } = require('child_process')
-
 	if(setTime && setTime > 0){
 		timeShow()
 	}else{
@@ -57,36 +55,33 @@ const cli = meow(`
 
 	log.start("runing keep mac light >> ⏰ << " + setTime)
 
+
+	const { exec } = require('child_process')
+	const moveMouseTime = 50000
+	let KeepTime;
+
 	KeepRun()
-
 	function KeepRun(){
-
-		if( forEver && setTime <= 0){
-			// forever == false, never Quit node
-			log.stop(`Time, KeepRun end ${new Date().toLocaleString()}`,{ora:"succeed"})
-			process.exit(0)
-		}
-
 		exec('cliclick m:+1,+0')
 		exec('cliclick m:-1,+0')
-		setTimeout(() => {
-			T += 50
+		KeepTime = setTimeout(() => {
 			KeepRun()
-		}, 50*1000);
-
+		}, moveMouseTime);
 	}
 
+ // If have time set, Run time show every seconds
 	function timeShow(){
 		if(setTime <= 0){
-			log.stop(`Time end ${new Date().toLocaleString()}`,{ora:"succeed"})
-			process.exit(0)
+			log.stop(`${StartTime} ~~ ${new Date().toLocaleString()}`,{ora:"succeed"})
+			clearTimeout(KeepTime)
+			process.exitCode = 0;
+		}else{
+			log.text(`..(o^^o).. ⏰ ${setTime}s`)
+			setTimeout(() => {
+				setTime --
+				timeShow()
+			}, 1000);
 		}
-		log.text(`..(o^^o).. ⏰ ${setTime}s`)
-		setTimeout(() => {
-			setTime --
-			timeShow()
-		}, 1000);
-
 	}
 
 
