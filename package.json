@@ -16,7 +16,7 @@
 	"scripts": {
 		"precommit": "lint-staged",
 		"test": "nyc ava -v",
-		"pub": "npm run npmUp && npm run git",
+		"pub": "npm run test && npm run npmUp && npm run git",
 		"npmUp": "npm version patch && npm publish",
 		"git": "git push && git push --tags"
 	},
