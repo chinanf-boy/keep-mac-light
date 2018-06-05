@@ -2,6 +2,8 @@
 'use strict';
 const meow = require('meow');
 var whatTime = require('what-time');
+var reverseWhatTime = require('reverse-what-time');
+
 
 const cli = meow(`
 	Usage
@@ -27,25 +29,7 @@ const cli = meow(`
 	let setTime = ''
 
 	if(t){ // set time
-		function getNum(str){
-			let i = t.indexOf(str)
-			if(i > -1){
-				let n = t.substring(0, i)
-				t = t.slice(i+1)
-				return n
-			}
-			return 0
-		}
-
-		let h = getNum('h')
-		let m = getNum('m')
-		let s = getNum('s')
-
-		h = +h * 3600
-		m = +m * 60
-		s = +s
-
-		setTime = h + m + s
+		setTime = reverseWhatTime(t)
 	}
 
 	if(setTime && setTime > 0){
