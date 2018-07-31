@@ -21,24 +21,25 @@ keep-mac-light
 ```
 
 ```
-$ keep-mac-light --help
-
 	Usage
-	  $ keep-mac-light [time]
+	  $ keep-mac-light [time] [Options]
 
 	Examples
 	  $ keep-mac-light
 
 		set Time to no light, But os setting is First options < oo >
 
-		"1h3m5s"
-		1 hour 3 minutes 5 seconds
+		$ keep-mac-light 1h3m5s
+
+		after 1 hour 3 minutes 5 seconds, quit keep-mac-light
+
+	Optioins
+		-d  <dark mode>
 ```
 
 ## How it Work ?
 
 every `50s`, use `cliclick` handle the `mouse` will move a lit bit, so Light is Up forEver
-
 
 
 ## Use
@@ -48,9 +49,10 @@ every `50s`, use `cliclick` handle the `mouse` will move a lit bit, so Light is 
 - [what-time](https://github.com/chinanf-boy/what-time) human readable time
 
 
-<a href="https://patreon.com/yobrave">
-<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" height="50">
-</a>
+## Live
+
+[help me live , live need money 💰](https://github.com/chinanf-boy/live-need-money)
+
 
 ## License
 

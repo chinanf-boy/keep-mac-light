@@ -4,27 +4,50 @@ const meow = require('meow');
 var whatTime = require('what-time');
 var reverseWhatTime = require('reverse-what-time');
 
-
 const cli = meow(`
 	Usage
-	  $ keep-mac-light [time]
+	  $ keep-mac-light [time] [Options]
 
 	Examples
 	  $ keep-mac-light
 
 		set Time to no light, But os setting is First options < oo >
 
-		"1h3m5s"
-		1 hour 3 minutes 5 seconds
+		$ keep-mac-light 1h3m5s
+
+		after 1 hour 3 minutes 5 seconds, quit keep-mac-light
+
+	Optioins
+		-d  <dark mode> 
 `);
+
 
 (async function(){
 	const {twoLog} = require('two-log')
+	const { exec } = require('child_process')
 
 	const StartTime = new Date().toLocaleString()
 
 	let log = twoLog(cli.flags['D'])
 	let t = cli.input[0]
+
+	// dark mode
+	let dark = cli.flags['d']
+	if(dark){
+		const brightness = require('brightness');
+		const exitHook = require('exit-hook');
+
+		let lightLevel = await brightness.get().then(r => r)
+		await brightness.set(0.1)
+
+		exitHook(() => {
+			brightness.set(lightLevel)
+		});
+	}
+
+
+
+
 	// if t == false , forever
 	let setTime = ''
 
@@ -41,7 +64,7 @@ const cli = meow(`
 	log.start("runing keep mac light >> ⏰ << " + setTime)
 
 
-	const { exec } = require('child_process')
+
 	const moveMouseTime = 50000
 	let KeepTime;
 

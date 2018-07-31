@@ -42,6 +42,8 @@
 		"keep-light"
 	],
 	"dependencies": {
+		"brightness": "^3.0.0",
+		"exit-hook": "^2.0.0",
 		"meow": "^5.0.0",
 		"reverse-what-time": "0.0.4",
 		"two-log": "0.0.9",
