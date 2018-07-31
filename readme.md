@@ -37,6 +37,16 @@ keep-mac-light
 		-d  <dark mode>
 ```
 
+## dark mode
+
+1. set brightness 0.1
+
+> use https://github.com/kevva/brightness
+
+2. reset brightness before exit
+
+> use https://github.com/sindresorhus/exit-hook
+
 ## How it Work ?
 
 every `50s`, use `cliclick` handle the `mouse` will move a lit bit, so Light is Up forEver
