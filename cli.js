@@ -18,7 +18,7 @@ const cli = meow(`
 		after 1 hour 3 minutes 5 seconds, quit keep-mac-light
 
 	Optioins
-		-d  <dark mode> 
+		-d  <dark mode>
 `);
 
 
@@ -33,12 +33,18 @@ const cli = meow(`
 
 	// dark mode
 	let dark = cli.flags['d']
+	let downTime = 16
 	if(dark){
 		const brightness = require('brightness');
 		const exitHook = require('exit-hook');
 
 		let lightLevel = await brightness.get().then(r => r)
-		await brightness.set(0.1)
+
+		while(downTime){
+			exec('cliclick kp:brightness-down -w 500')
+			downTime --
+		}
+		exec('cliclick kp:brightness-up -w 500')
 
 		exitHook(() => {
 			brightness.set(lightLevel)
