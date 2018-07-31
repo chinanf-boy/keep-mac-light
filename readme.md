@@ -1,6 +1,6 @@
 # keep-mac-light [![Build Status](https://travis-ci.org/chinanf-boy/keep-mac-light.svg?branch=master)](https://travis-ci.org/chinanf-boy/keep-mac-light)
 
-> keep mac light no down
+> keep mac no down `standby mode`
 
 ## Install
 
@@ -16,43 +16,45 @@ brew install cliclick
 npm i -g keep-mac-light
 ```
 
+## Use
+
 ```
 keep-mac-light
 ```
 
-```
-	Usage
-	  $ keep-mac-light [time] [Options]
+``` bash
+Usage
+	$ keep-mac-light [time] [Options]
 
-	Examples
-	  $ keep-mac-light
+Examples
+	$ keep-mac-light
 
-		set Time to no light, But os setting is First options < oo >
+	set Time to no light, But os setting is First options < oo >
 
-		$ keep-mac-light 1h3m5s
+	$ keep-mac-light 1h3m5s
 
-		after 1 hour 3 minutes 5 seconds, quit keep-mac-light
+	after 1 hour 3 minutes 5 seconds, quit keep-mac-light
 
-	Optioins
-		-d  <dark mode>
+Optioins
+	-d  "0.0 ~ 1.0"  {default: 0.1} <dark mode>
 ```
 
 ## dark mode
 
-1. set brightness 0.1
+1. set brightness 0 `-d 0`
 
-> use https://github.com/kevva/brightness
+> pkg https://github.com/kevva/brightness
 
 2. reset brightness before exit
 
-> use https://github.com/sindresorhus/exit-hook
+> pkg https://github.com/sindresorhus/exit-hook
 
 ## How it Work ?
 
 every `50s`, use `cliclick` handle the `mouse` will move a lit bit, so Light is Up forEver
 
 
-## Use
+## pkg
 
 - https://github.com/BlueM/cliclick `Mac key/mouse event`
 - [two-log](https://github.com/chinanf-boy/two-log) I just need two message show
