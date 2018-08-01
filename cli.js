@@ -34,7 +34,7 @@ const cli = meow(`
   // dark mode
   let dark = cli.flags['d']
   if(dark || dark === 0){
-    dark = (dark <= 1 && dark >= 0) ? dark : 0.1
+    dark = dark !== true ? dark : 0.1
     const brightness = require('brightness');
     const exitHook = require('exit-hook');
 
