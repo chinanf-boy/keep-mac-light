@@ -79,7 +79,7 @@ const cli = meow(`
 
  // If have time set, Run time show every seconds
   async function timeShow(){
-		dark && await brightness.set(dark);
+		dark >= 0 && await brightness.set(dark);
     if(setTime <= 0){
       log.stop(`${StartTime} ~~ ${new Date().toLocaleString()}`,{ora:"succeed"})
       clearTimeout(KeepTime)
