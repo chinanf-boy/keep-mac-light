@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 'use strict';
 const meow = require('meow');
-var whatTime = require('what-time');
-var reverseWhatTime = require('reverse-what-time');
+const whatTime = require('what-time');
+const reverseWhatTime = require('reverse-what-time');
+const brightness = require('brightness');
 
 const cli = meow(`
   Usage
@@ -32,21 +33,15 @@ const cli = meow(`
   let t = cli.input[0]
 
   // dark mode
-  let dark = cli.flags['d']
+	let dark = cli.flags['d']
+	let lightLevel;
   if(dark || dark === 0){
     dark = dark !== true ? dark : 0.1
-    const brightness = require('brightness');
     const exitHook = require('exit-hook');
 
-    let lightLevel = await brightness.get().then(r => r)
+    lightLevel = await brightness.get().then(r => r)
     // Seem like some time , brightness will relight : BUG
     await brightness.set(dark)
-
-    // while(downTime){
-    // 	exec('cliclick kp:brightness-down -w 500')
-    // 	downTime --
-    // }
-    // exec('cliclick -w 1400 kp:brightness-up ')
 
     exitHook(() => {
 
@@ -59,11 +54,9 @@ const cli = meow(`
 
   // if t == false , forever
   let setTime = ''
-
   if(t){ // set time
     setTime = reverseWhatTime(t)
   }
-
   if(setTime && setTime > 0){
     timeShow()
   }else{
@@ -71,8 +64,6 @@ const cli = meow(`
   }
 
   log.start("runing keep mac light >> ⏰ << " + setTime)
-
-
 
   const moveMouseTime = 50000
   let KeepTime;
@@ -87,7 +78,8 @@ const cli = meow(`
   }
 
  // If have time set, Run time show every seconds
-  function timeShow(){
+  async function timeShow(){
+		dark && await brightness.set(dark);
     if(setTime <= 0){
       log.stop(`${StartTime} ~~ ${new Date().toLocaleString()}`,{ora:"succeed"})
       clearTimeout(KeepTime)
