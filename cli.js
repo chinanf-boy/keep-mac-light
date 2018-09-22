@@ -89,6 +89,10 @@ const cli = meow(`
 					timeShow();
 				}, 1000);
 			}
+		}else{
+			setTimeout(() => {
+				timeShow();
+			}, 1000);
 		}
 
 	}
