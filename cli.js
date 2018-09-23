@@ -56,7 +56,6 @@ const cli = meow(`
 		timeShow();
 	} else {
 		setTime = '0-^ ForEver';
-		timeShow();
 	}
 
 	log.start('runing keep mac light >> ⏰ << ' + setTime);
@@ -73,14 +72,21 @@ const cli = meow(`
 		}, moveMouseTime);
 	}
 
+	let darkTime;
+	darkRun()
+	function darkRun(){
+		dark >= 0 && brightness.set(dark);
+		darkTime = setTimeout(() =>{
+			darkRun()
+		},5000)
+	}
 	// If have time set, Run time show every seconds
-	async function timeShow() {
-		dark >= 0 && await brightness.set(dark);
-
+	function timeShow() {
 		if(Number.isInteger(setTime)){
 			if (setTime <= 0) {
 				log.stop(`${StartTime} ~~ ${new Date().toLocaleString()}`, {ora: 'succeed'});
 				clearTimeout(KeepTime);
+				clearTimeout(darkTime);
 				process.exitCode = 0;
 			} else {
 				log.text(`..(o^^o).. ⏰ ${whatTime(setTime)}`);
@@ -89,10 +95,6 @@ const cli = meow(`
 					timeShow();
 				}, 1000);
 			}
-		}else{
-			setTimeout(() => {
-				timeShow();
-			}, 1000);
 		}
 
 	}
